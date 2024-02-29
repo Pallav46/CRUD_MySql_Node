@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Salesperson</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .salesperson-info {
+            margin-bottom: 20px;
+        }
+
+        .salesperson-info p {
+            margin: 5px 0;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons button {
+            padding: 8px 15px;
+            background-color: #f44336;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-buttons button:hover {
+            background-color: #d32f2f;
+        }
+
+        .back-link {
+            margin-top: 20px;
+            display: inline-block;
+            text-decoration: none;
+            color: #333;
+            background-color: #f2f2f2;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>View Salesperson</h1>
+        <div class="salesperson-info">
+            <p><strong>Salesperson Number:</strong> <%= salesPerson.S_NUM %></p>
+            <p><strong>Name:</strong> <%= salesPerson.S_NAME %></p>
+            <p><strong>City:</strong> <%= salesPerson.CITY %></p>
+            <p><strong>Commission:</strong> <%= salesPerson.COMM %></p>
+        </div>
+        <div class="action-buttons">
+            <form action="/editSalesPerson/<%= salesPerson.S_NUM %>" method="GET">
+                <button>Edit</button>
+            </form>
+            <form action="/deleteSalesPerson/<%= salesPerson.S_NUM %>" method="POST">
+                <button>Delete</button>
+            </form>
+        </div>
+        <a href="/salesPerson" class="back-link">Back to Sales People</a>
+    </div>
+</body>
+
+</html>
